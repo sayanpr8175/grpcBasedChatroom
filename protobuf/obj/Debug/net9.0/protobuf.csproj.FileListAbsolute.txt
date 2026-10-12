@@ -1,0 +1,17 @@
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\bin\Debug\net9.0\protobuf.exe
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\bin\Debug\net9.0\protobuf.deps.json
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\bin\Debug\net9.0\protobuf.runtimeconfig.json
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\bin\Debug\net9.0\protobuf.dll
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\bin\Debug\net9.0\protobuf.pdb
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\bin\Debug\net9.0\Google.Protobuf.dll
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\obj\Debug\net9.0\protobuf.csproj.AssemblyReference.cache
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\obj\Debug\net9.0\protobuf.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\obj\Debug\net9.0\protobuf.AssemblyInfoInputs.cache
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\obj\Debug\net9.0\protobuf.AssemblyInfo.cs
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\obj\Debug\net9.0\protobuf.csproj.CoreCompileInputs.cache
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\obj\Debug\net9.0\protobuf.csproj.Up2Date
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\obj\Debug\net9.0\protobuf.dll
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\obj\Debug\net9.0\refint\protobuf.dll
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\obj\Debug\net9.0\protobuf.pdb
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\obj\Debug\net9.0\protobuf.genruntimeconfig.cache
+C:\Users\sayan\Downloads\udemy_courses\grpc_based_chatroom\grpc\protobuf\obj\Debug\net9.0\ref\protobuf.dll
