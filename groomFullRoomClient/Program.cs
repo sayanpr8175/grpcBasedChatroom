@@ -2,7 +2,7 @@
 using gRoom.gRPC.Messages;
 using Google.Protobuf.WellKnownTypes;
 
-using var channel = GrpcChannel.ForAddress("http://localhost:5282");
+using var channel = GrpcChannel.ForAddress("https://localhost:7200");
 var client = new Groom.GroomClient(channel);
 
 Console.WriteLine("Welcome the the gRoom chat!");
@@ -16,9 +16,12 @@ Console.WriteLine($"Joining room {room}...");
 
 try
 {
+    var headers = new Grpc.Core.Metadata();
+    headers.Add("Authorization", "Bearer jsnjfnskjfkjskjshurfbkabxkanlnl=");
+
     var joinResponse = client.RegisterToRoom(new RoomRegistrationRequest() {
         RoomName = room, UserName = username 
-    }, deadline: DateTime.UtcNow.AddSeconds(5));
+    }, deadline: DateTime.UtcNow.AddSeconds(5), headers: headers);
     if (joinResponse.Joined)
     {
         Console.WriteLine("Joined successfully!");
@@ -64,15 +67,28 @@ var task = Task.Run(async () =>
 
     while (true)
     {
-       
-        if(await call.ResponseStream.MoveNext(cts.Token))
+        try
         {
-            var msg = call.ResponseStream.Current;
-            var left = Console.CursorLeft - promptText.Length;
-            PrintMessage(msg);
-        }
+            if (await call.ResponseStream.MoveNext(cts.Token))
+            {
+                var msg = call.ResponseStream.Current;
+                var left = Console.CursorLeft - promptText.Length;
+                PrintMessage(msg);
+            }
 
-        await Task.Delay(500);        
+            await Task.Delay(500);
+        }
+        catch (Grpc.Core.RpcException ex)
+        {
+            if(ex.StatusCode == Grpc.Core.StatusCode.Cancelled)
+            {
+                Console.WriteLine("Cancelled!");
+                break;
+            }
+
+        }
+       
+             
     }
 });
 
@@ -82,14 +98,22 @@ while (true)
     var input = Console.ReadLine();
     RestoreInputCursor();
 
-    var reqMsg = new ChatMessage();
-    reqMsg.Contents = input;
+    if(input=="X")
+    {
+        cts.Cancel();
+        Console.WriteLine("Chat Cancelled!");
+    }
+    else
+    {
+        var reqMsg = new ChatMessage();
+        reqMsg.Contents = input;
 
-    reqMsg.MsgTime = Timestamp.FromDateTime(DateTime.UtcNow);
-    reqMsg.Room = room;
-    reqMsg.User = username;
-    await call.RequestStream.WriteAsync(reqMsg);
-    
+        reqMsg.MsgTime = Timestamp.FromDateTime(DateTime.UtcNow);
+        reqMsg.Room = room;
+        reqMsg.User = username;
+        await call.RequestStream.WriteAsync(reqMsg);
+
+    }
     
 }
 
