@@ -13,8 +13,11 @@ public class GroomService : Groom.GroomBase
         _logger = logger;
     }
 
-    public override async Task<RoomRegistrationResponse> RegisterToRoom(RoomRegistrationRequest request, ServerCallContext context)
+    public override async Task<RoomRegistrationResponse> RegisterToRoom(RoomRegistrationRequest request, 
+        ServerCallContext context)
     {
+        await Task.Delay(10000);
+
         UsersQueues.CreateUserQueue(request.RoomName, request.UserName);
         var resp = new RoomRegistrationResponse() { Joined = true };
 
