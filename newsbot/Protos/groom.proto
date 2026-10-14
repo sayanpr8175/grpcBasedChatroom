@@ -1,0 +1,19 @@
+﻿syntax="proto3";
+
+package groom;
+
+import "google/protobuf/timestamp.proto";
+
+
+message NewsFlash {
+    google.protobuf.Timestamp news_time=1;
+    string news_item=2;
+}
+
+message NewsStreamStatus {
+    bool success=1;
+}
+
+service Groom{
+    rpc SendNewsFlash(stream NewsFlash) returns (NewsStreamStatus);
+}

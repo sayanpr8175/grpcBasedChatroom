@@ -1,2 +1,0 @@
-obj\Debug\net9.0\Protos/Groom.cs \
-obj\Debug\net9.0\Protos/GroomGrpc.cs: Protos/groom.proto
